@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nathan Zamora — Resume</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="resume">
+
+    <!-- HEADER -->
+    <header class="header">
+      <h1>Nathan Zamora</h1>
+      <p class="title">IT Support Technician &middot; Aspiring Cloud Engineer</p>
+      <ul class="contact">
+        <li><a href="mailto:nathanzamora45@gmail.com">nathanzamora45@gmail.com</a></li>
+        <li>(909) 276-6941</li>
+        <li><a href="https://github.com/nthn22" target="_blank" rel="noopener">github.com/nthn22</a></li>
+        <li><a href="https://linkedin.com/in/nathan-zamora-833b711b4" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </header>
+
+    <!-- SUMMARY -->
+    <section class="section">
+      <h2>Summary</h2>
+      <p>
+        AWS Certified Solutions Architect – Associate and first-generation Computer Science
+        graduate with hands-on experience in IT support, Active Directory administration, and
+        full-stack development. Building toward a cloud infrastructure and DevOps role, with
+        practical projects spanning Infrastructure as Code, CI/CD, and serverless architecture.
+      </p>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="section">
+      <h2>Certifications</h2>
+      <ul class="list">
+        <li>AWS Certified Solutions Architect – Associate (SAA-C03)</li>
+      </ul>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section">
+      <h2>Experience</h2>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="role">IT Support Technician</span>
+          <span class="date">2026 – Present</span>
+        </div>
+        <div class="entry-sub">Acorn Engineering Company (Morris Group International) — City of Industry, CA</div>
+        <ul class="list">
+          <li>Administer domain-joined Windows machines, user accounts, and access in a production Active Directory environment.</li>
+          <li>Resolve hardware and software issues including HDD-to-SSD upgrades, driver troubleshooting, and remote support via TeamViewer.</li>
+          <li>Troubleshoot Keyence IM Series measurement systems and other specialized manufacturing equipment.</li>
+          <li>Documented recurring issues and resolutions to speed up ticket handling and knowledge sharing.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section">
+      <h2>Projects</h2>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="role">Cloud Resume </span>
+          <span class="date">2026</span>
+        </div>
+        <ul class="list">
+          <li>Static site on Amazon S3, served over HTTPS through CloudFront with a Route 53 custom domain.</li>
+          <li>Serverless visitor counter using API Gateway, Lambda (Python/boto3), and DynamoDB.</li>
+          <li>Infrastructure defined in Terraform; deployed via GitHub Actions CI/CD.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="role">CodePulse — AI Code Review Platform</span>
+          <span class="date">github.com/nthn22/codepulse</span>
+        </div>
+        <ul class="list">
+          <li>Full-stack app that reviews code via the Claude API with real-time SSE streaming responses.</li>
+          <li>Built with React, Node.js, PostgreSQL, and Prisma; secured with JWT authentication.</li>
+          <li>Backed by 53 automated tests; deployed to production.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="role">Active Directory Home Lab</span>
+          <span class="date">github.com/nthn22/active-directory-home-lab</span>
+        </div>
+        <ul class="list">
+          <li>Windows Server 2022 domain controller on VirtualBox with a joined client machine.</li>
+          <li>Configured Organizational Units, Group Policy (password complexity, account lockout), and user provisioning.</li>
+          <li>Documented end-to-end setup for reproducibility.</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section">
+      <h2>Skills</h2>
+      <p class="skills">
+        AWS (S3, CloudFront, Lambda, DynamoDB, API Gateway, IAM, VPC) &middot; Terraform &middot;
+        GitHub Actions / CI/CD &middot; Python &middot; JavaScript &middot; React &middot; Node.js &middot;
+        PostgreSQL &middot; Active Directory &middot; Windows Server &middot; Git &middot; Linux
+      </p>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section">
+      <h2>Education</h2>
+      <div class="entry">
+        <div class="entry-head">
+          <span class="role">B.S. Computer Science</span>
+          <span class="date">2025</span>
+        </div>
+        <div class="entry-sub">California State Polytechnic University, Pomona</div>
+      </div>
+    </section>
+
+    <!-- VISITOR COUNTER (Phase 2 hooks in here) -->
+    <footer class="footer">
+      <p>This page has been viewed <span id="visitor-count">—</span> times.</p>
+    </footer>
+
+  </main>
+
+  <!-- Phase 2: this script will call your API Gateway endpoint -->
+  <script src="counter.js"></script>
+</body>
+</html>

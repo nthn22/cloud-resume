@@ -1,0 +1,112 @@
+/* ---- Design tokens: tweak these to make it yours ---- */
+:root {
+  --ink: #1a1a1a;
+  --muted: #5a5a5a;
+  --accent: #2a5d8f;      /* swap for your own color */
+  --line: #e2e2e2;
+  --bg: #ffffff;
+  --max-width: 820px;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ---- Base ---- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  color: var(--ink);
+  background: #f4f4f5;
+  line-height: 1.5;
+  padding: 40px 16px;
+}
+
+.resume {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  background: var(--bg);
+  padding: 48px 56px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* ---- Header ---- */
+.header { border-bottom: 2px solid var(--accent); padding-bottom: 16px; margin-bottom: 24px; }
+.header h1 { font-size: 32px; letter-spacing: -0.5px; }
+.title { color: var(--accent); font-weight: 600; margin: 4px 0 12px; }
+
+.contact {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.contact a { color: var(--muted); text-decoration: none; }
+.contact a:hover { color: var(--accent); text-decoration: underline; }
+
+/* ---- Sections ---- */
+.section { margin-bottom: 26px; }
+.section h2 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 4px;
+  margin-bottom: 12px;
+}
+.section p { font-size: 15px; }
+
+/* ---- Entries (jobs, projects, education) ---- */
+.entry { margin-bottom: 18px; }
+.entry:last-child { margin-bottom: 0; }
+
+.entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.role { font-weight: 700; font-size: 16px; }
+.date { font-size: 13px; color: var(--muted); }
+.entry-sub { font-size: 14px; color: var(--muted); margin: 2px 0 8px; font-style: italic; }
+
+/* ---- Lists ---- */
+.list { list-style: none; }
+.list li {
+  font-size: 14.5px;
+  padding-left: 18px;
+  position: relative;
+  margin-bottom: 5px;
+}
+.list li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 9px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.skills { font-size: 14.5px; color: var(--ink); }
+
+/* ---- Footer / visitor counter ---- */
+.footer {
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+}
+#visitor-count { font-weight: 700; color: var(--accent); }
+
+/* ---- Print / mobile ---- */
+@media (max-width: 600px) {
+  .resume { padding: 32px 24px; }
+  .header h1 { font-size: 26px; }
+}
