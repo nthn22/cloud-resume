@@ -5,7 +5,7 @@
 // fetch + increment the visitor count from Lambda -> DynamoDB.
 // ============================================================
 
-const API_URL = ""; // <-- paste your API Gateway invoke URL here in Phase 2
+const API_URL = "https://75f2y065bd.execute-api.us-east-1.amazonaws.com/count";
 
 async function updateVisitorCount() {
   const el = document.getElementById("visitor-count");
