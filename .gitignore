@@ -1,0 +1,25 @@
+# Terraform (Phase 5)
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+.terraform.lock.hcl
+ 
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+venv/
+env/
+ 
+# AWS credentials / secrets — never commit these
+.env
+*.csv
+*credentials*
+*.pem
+ 
+# OS / editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+ 
