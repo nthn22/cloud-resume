@@ -18,6 +18,5 @@ resource "aws_lambda_function" "visitor_counter" {
 
   filename         = data.archive_file.lambda_zip.output_path
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
-  # source_code_hash tells Terraform "redeploy if the code changed" --
-  # without it, Terraform wouldn't notice if you edited lambda_function.py later.
+  # source_code_hash tells Terraform "redeploy if the code changed"
 }

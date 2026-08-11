@@ -9,7 +9,7 @@ resource "aws_apigatewayv2_api" "visitor_api" {
   protocol_type = "HTTP"
 
   cors_configuration {
-    allow_origins = ["*"]  # tighten to your real domain once you have one
+    allow_origins = ["*"]  # tighten to domain once I get one
     allow_methods = ["POST"]
     allow_headers = ["content-type"]
   }
@@ -30,7 +30,7 @@ resource "aws_apigatewayv2_route" "count_route" {
   target    = "integrations/${aws_apigatewayv2_integration.lambda_integration.id}"
 }
 
-# The stage -- $default, auto-deploying, matching your manual setup.
+# The stage -- $default, auto-deploying, matching manual setup.
 resource "aws_apigatewayv2_stage" "default_stage" {
   api_id      = aws_apigatewayv2_api.visitor_api.id
   name        = "$default"
@@ -48,7 +48,7 @@ resource "aws_lambda_permission" "allow_apigateway" {
   source_arn    = "${aws_apigatewayv2_api.visitor_api.execution_arn}/*/*"
 }
 
-# Print the invoke URL after apply, so you don't have to hunt for it in the console.
+# Print the invoke URL after apply
 output "api_invoke_url" {
   value = "${aws_apigatewayv2_api.visitor_api.api_endpoint}/count"
 }

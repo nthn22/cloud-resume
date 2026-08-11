@@ -6,12 +6,10 @@
 
 # --- S3 bucket ---
 resource "aws_s3_bucket" "website" {
-  bucket = "nthnz-cloud-resume-tf"  # must be globally unique -- change if taken
+  bucket = "nthnz-cloud-resume-tf"  # change if taken
 }
 
-# Block ALL public access from the start -- unlike the manual build,
-# we never need a "public first, then lock down" step here, since
-# OAC + bucket policy handle access from day one.
+# Block ALL public access from the start
 resource "aws_s3_bucket_public_access_block" "website" {
   bucket = aws_s3_bucket.website.id
 
@@ -21,9 +19,7 @@ resource "aws_s3_bucket_public_access_block" "website" {
   restrict_public_buckets = true
 }
 
-# Upload the three website files. (In Phase 6/CI-CD, this manual
-# upload gets replaced by a GitHub Actions "aws s3 sync" step --
-# for now, Terraform pushes them directly.)
+# Upload the three website files (in future will have s3 sync implemented)
 resource "aws_s3_object" "index_html" {
   bucket       = aws_s3_bucket.website.id
   key          = "index.html"
@@ -62,7 +58,7 @@ resource "aws_cloudfront_distribution" "website" {
   default_root_object = "index.html"
 
   origin {
-    domain_name              = aws_s3_bucket.website.bucket_regional_domain_name
+    domain_name              = aws_s3_bucket.website.bucket_regional_domain_name # tf equivalent of bucket REST endpoint (no website endpoint)
     origin_id                = "s3-resume-origin"
     origin_access_control_id = aws_cloudfront_origin_access_control.oac.id
   }

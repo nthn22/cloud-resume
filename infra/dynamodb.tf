@@ -6,7 +6,7 @@
 
 resource "aws_dynamodb_table" "visitor_count" {
   name         = "visitor-count-tf"   # different name from the manual one, so they don't collide
-  billing_mode = "PAY_PER_REQUEST"    # matches "on-demand" capacity you chose manually
+  billing_mode = "PAY_PER_REQUEST"    # matches "on-demand" capacity
   hash_key     = "id"
 
   attribute {
@@ -15,7 +15,7 @@ resource "aws_dynamodb_table" "visitor_count" {
   }
 }
 
-# Seed the starting item, same as the manual "id=count, visits=0" you added by hand.
+# Seed the starting item, same as the manual "id=count, visits=0" 
 resource "aws_dynamodb_table_item" "starting_count" {
   table_name = aws_dynamodb_table.visitor_count.name
   hash_key   = aws_dynamodb_table.visitor_count.hash_key

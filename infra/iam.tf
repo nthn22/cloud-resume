@@ -26,14 +26,12 @@ resource "aws_iam_role" "lambda_exec_role" {
 }
 
 # Attach the AWS-managed policy that lets Lambda write its own logs to CloudWatch.
-# This is standard/expected for every Lambda, not specific to DynamoDB access.
 resource "aws_iam_role_policy_attachment" "lambda_logging" {
   role       = aws_iam_role.lambda_exec_role.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
 # The least-privilege policy: ONLY dynamodb:UpdateItem, ONLY on this one table.
-# This is the Terraform version of the inline JSON policy you wrote by hand.
 data "aws_iam_policy_document" "dynamodb_update_only" {
   statement {
     effect    = "Allow"
