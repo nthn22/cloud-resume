@@ -1,0 +1,73 @@
+name: Deploy Cloud Resume
+
+on:
+  push:
+    branches: [main]
+
+# Required so GitHub can issue the OIDC token this workflow needs
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  # ------------------------------------------------------------
+  # Backend: run tests, and if they pass, update the Lambda code.
+  # ------------------------------------------------------------
+  deploy-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install test dependencies
+        run: pip install pytest moto boto3
+        working-directory: backend
+
+      - name: Run tests
+        run: python -m pytest test_lambda_function.py -v
+        working-directory: backend
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+        # arn here
+          role-to-assume: arn:aws:iam::060795915549:role/github-actions-deploy-role
+          aws-region: us-east-1
+
+      - name: Update Lambda function code
+        run: |
+          cd backend
+          zip lambda_function.zip lambda_function.py
+          aws lambda update-function-code \
+            --function-name visitor-counter-tf \
+            --zip-file fileb://lambda_function.zip
+
+  # ------------------------------------------------------------
+  # Frontend: sync files to S3, invalidate CloudFront cache.
+  # ------------------------------------------------------------
+  deploy-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          # SAME ROLE ARN AS ABOVE:
+          role-to-assume: arn:aws:iam::060795915549:role/github-actions-deploy-role
+          aws-region: us-east-1
+
+      - name: Sync files to S3
+        run: aws s3 sync frontend/ s3://nthnz-cloud-resume-tf --delete
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id E108BWGBSM460G \
+            --paths "/*"
