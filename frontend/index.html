@@ -16,6 +16,7 @@
       <ul class="contact">
         <li><a href="mailto:nathanzamora45@gmail.com">nathanzamora45@gmail.com</a></li>
         <li>(909) 276-6941</li>
+        <li>Rancho Cucamonga, CA</li>
         <li><a href="https://github.com/nthn22" target="_blank" rel="noopener">github.com/nthn22</a></li>
         <li><a href="https://linkedin.com/in/nathan-zamora-833b711b4" target="_blank" rel="noopener">LinkedIn</a></li>
       </ul>
@@ -54,7 +55,7 @@
           <li>Administer domain-joined Windows machines, user accounts, and access in a production Active Directory environment.</li>
           <li>Resolve hardware and software issues including HDD-to-SSD upgrades, driver troubleshooting, and remote support via TeamViewer.</li>
           <li>Troubleshoot Keyence IM Series measurement systems and other specialized manufacturing equipment.</li>
-          <li>Documented recurring issues and resolutions to speed up ticket handling and knowledge sharing.</li>
+          <li>Built Python/Pandas tooling to bridge reporting gaps and automate repetitive data tasks.</li>
         </ul>
       </div>
     </section>
@@ -62,18 +63,6 @@
     <!-- PROJECTS -->
     <section class="section">
       <h2>Projects</h2>
-
-      <div class="entry">
-        <div class="entry-head">
-          <span class="role">Cloud Resume </span>
-          <span class="date">2026</span>
-        </div>
-        <ul class="list">
-          <li>Static site on Amazon S3, served over HTTPS through CloudFront with a Route 53 custom domain.</li>
-          <li>Serverless visitor counter using API Gateway, Lambda (Python/boto3), and DynamoDB.</li>
-          <li>Infrastructure defined in Terraform; deployed via GitHub Actions CI/CD.</li>
-        </ul>
-      </div>
 
       <div class="entry">
         <div class="entry-head">
@@ -99,13 +88,25 @@
         </ul>
       </div>
 
+      <div class="entry">
+        <div class="entry-head">
+          <span class="role">Cloud Resume Challenge (this site)</span>
+          <span class="date">github.com/nthn22/cloud-resume</span>
+        </div>
+        <ul class="list">
+          <li>Static site served over HTTPS via CloudFront and a private S3 bucket, locked down with Origin Access Control.</li>
+          <li>Serverless visitor counter: API Gateway, AWS Lambda (Python/boto3), and DynamoDB, with automated unit tests (pytest, moto).</li>
+          <li>Entire infrastructure defined in Terraform, reproducible from a blank AWS account.</li>
+          <li>CI/CD pipeline in GitHub Actions: tests run on every push, then deploys via AWS OIDC federation with no long-lived credentials stored.</li>
+        </ul>
+      </div>
     </section>
 
     <!-- SKILLS -->
     <section class="section">
       <h2>Skills</h2>
       <p class="skills">
-        AWS (S3, CloudFront, Lambda, DynamoDB, API Gateway, IAM, VPC) &middot; Terraform &middot;
+        AWS (S3, CloudFront, Lambda, DynamoDB, API Gateway, IAM, VPC) &middot; Terraform / Infrastructure as Code &middot;
         GitHub Actions / CI/CD &middot; Python &middot; JavaScript &middot; React &middot; Node.js &middot;
         PostgreSQL &middot; Active Directory &middot; Windows Server &middot; Git &middot; Linux
       </p>
