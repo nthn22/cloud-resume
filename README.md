@@ -2,7 +2,7 @@
 
 A serverless resume website built on AWS, fully defined as Infrastructure as Code and deployed through an automated CI/CD pipeline — my take on the [Cloud Resume Challenge](https://cloudresumechallenge.dev/).
 
-**Live site:** [Cloud Resume](d23rtileptlnbs.cloudfront.net).
+**Live site:** [Cloud Resume](d23rtileptlnbs.cloudfront.net/)
 
 ---
 
