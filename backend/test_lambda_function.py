@@ -10,10 +10,10 @@ from moto import mock_aws
  
 # Import the actual Lambda handler we're testing.
 # Assumes lambda_function.py lives in the same folder as this test file.
-from lambda_function import lambda_handler
+from backend.lambda_function import lambda_handler
  
  
-TABLE_NAME = "visitor-count"
+TABLE_NAME = "visitor-count-tf"
  
  
 @pytest.fixture
