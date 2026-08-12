@@ -31,6 +31,8 @@ jobs:
       - name: Run tests
         run: python -m pytest test_lambda_function.py -v
         working-directory: backend
+        env:
+          AWS_DEFAULT_REGION: us-east-1
 
       - name: Configure AWS credentials (OIDC)
         uses: aws-actions/configure-aws-credentials@v4
