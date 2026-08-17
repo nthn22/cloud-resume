@@ -65,6 +65,7 @@ Lambda (Python) ──► DynamoDB (visitor count)
 - Least-privilege IAM: the Lambda's execution role grants only `dynamodb:UpdateItem` on the one table it needs, nothing broader
 - A CI/CD pipeline secured with OIDC federation instead of long-lived AWS access keys stored as secrets
 - Automated testing with mocked AWS services (no real AWS calls, no cost, fully reproducible)
+- Terraform state is secured in a dedicated, encrypted, versioned S3 backend with DynamoDB locking, rather than left as a local file. 
 
 ## Running It Yourself
 
