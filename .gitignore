@@ -4,6 +4,7 @@
 *.tfstate.backup
 *.tfvars
 .terraform.lock.hcl
+*.zip
  
 # Python
 __pycache__/
@@ -22,4 +23,3 @@ env/
 .DS_Store
 Thumbs.db
 .vscode/
- 
